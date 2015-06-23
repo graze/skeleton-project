@@ -1,0 +1,41 @@
+{
+    "name": "graze/:package-name",
+    "description": ":package-description",
+    "keywords": [
+        "graze",
+        ":package-name"
+    ],
+    "homepage": "https://github.com/graze/:package-name",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": ":maintainer-name",
+            "email": ":maintainer@graze.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Graze Developers",
+            "email": "developers@graze.com",
+            "homepage": "www.graze.com",
+            "role": "Development Team"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Graze\\Skeleton\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Graze\\Skeleton\\Test\\": "tests/src",
+            "Graze\\Skeleton\\Test\\Unit\\": "tests/unit",
+            "Graze\\Skeleton\\Test\\Functional\\": "tests/functional"
+        }
+    }
+}
