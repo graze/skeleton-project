@@ -9,14 +9,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": ":maintainer-name",
-            "email": ":maintainer@graze.com",
+            "name": ":author-name",
+            "email": ":author-email",
             "role": "Developer"
         },
         {
             "name": "Graze Developers",
             "email": "developers@graze.com",
-            "homepage": "www.graze.com",
+            "homepage": "http://www.graze.com",
             "role": "Development Team"
         }
     ],
