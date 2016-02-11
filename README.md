@@ -14,11 +14,12 @@
 >**To use this skeleton project:**
 ```shell
 $ git clone --depth=1 git@github.com:graze/skeleton-project.git :package-name
-$ rm -rf !$/.git
+$ cd ./:package-name
+$ rm -rf .git
 $ git init
 ```
 
->You now have a copy of the files in this repository, in a new git repository with no previous history that can you manipulate and push to other remote repositories. 
+>You now have a copy of the files in this repository, in a new git repository with no previous history that can you manipulate and push to other remote repositories.
 
 This is where your description should go, try and limit it to a paragraph or two. It should outline the 'mission' or goals of the project
 to make it clear what the project is trying to achieve and the problems that it solves.
