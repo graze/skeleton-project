@@ -28,16 +28,16 @@ test-unit-coverage-clover:
 
 # functional tests
 test-functional:
-	@./vendor/bin/phpunit --testsuite unit
+	@./vendor/bin/phpunit --testsuite functional
 
 test-functional-coverage:
-	@./vendor/bin/phpunit --testsuite unit --coverage-text
+	@./vendor/bin/phpunit --testsuite functional --coverage-text
 
 test-functional-coverage-html:
-	@./vendor/bin/phpunit --testsuite unit --coverage-html ./tests/report/functional/html
+	@./vendor/bin/phpunit --testsuite functional --coverage-html ./tests/report/functional/html
 
 test-functional-coverage-clover:
-	@./vendor/bin/phpunit --testsuite unit --coverage-clover=./tests/report/functional/coverage.clover
+	@./vendor/bin/phpunit --testsuite functional --coverage-clover=./tests/report/functional/coverage.clover
 
 # build
 install:
