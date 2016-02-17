@@ -45,10 +45,26 @@ $ make test-unit
 $ make test-functional
 ```
 
-You can get a coverage report in text and HTML by running:
+You can get a coverage report in text:
 
 ```shell
 $ make test-coverage
 $ make test-unit-coverage
 $ make test-functional-coverage
+```
+
+An HTML coverage report can be written to `tests/report` using:
+
+```shell
+$ make test-coverage-html
+$ make test-unit-coverage-html
+$ make test-functional-coverage-html
+```
+
+For a coverage report in clover XML format use:
+
+```shell
+$ make test-coverage-clover
+$ make test-unit-coverage-clover
+$ make test-functional-coverage-clover
 ```
