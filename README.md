@@ -9,7 +9,7 @@
 
 >This is heavily inspired by the skeleton project from [The PHP League](https://github.com/thephpleague/skeleton). With some changes based on our preferences. Thanks to them!
 
->**Note:** Replace `:author-name` `:author-username` `:author-email` `:package-name` `:package-description` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this blockquote.
+>**Note:** Replace `:author-name` `:author-username` `:author-email` `:package-name` `:package-description`, `:scrutinizer-access-token` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json) and [travis.yml](.travis.yml) files, then delete this blockquote.
 
 >**To use this skeleton project:**
 ```shell
