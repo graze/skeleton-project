@@ -4,7 +4,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/graze/:package_name/master.svg?style=flat-square)](https://travis-ci.org/graze/:package-name)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/graze/:package-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/graze/:package-name/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/graze/:package-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/graze/:package-name)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/graze/:package-name/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/graze/:package-name/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/graze/:package-name.svg?style=flat-square)](https://packagist.org/packages/graze/:package-name)
 
 >This is heavily inspired by the skeleton project from [The PHP League](https://github.com/thephpleague/skeleton). With some changes based on our preferences. Thanks to them!
