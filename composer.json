@@ -57,6 +57,9 @@
         "test:coverage-clover": [
             "vendor/bin/phpunit --coverage-clover=./tests/report/coverage.clover"
         ],
+        "test:coverage-html": [
+            "vendor/bin/phpunit --coverage-html ./tests/report/html"
+        ],
         "lint": [
             "vendor/bin/phpcs -p --standard=PSR2 --warning-severity=0 src/ tests/"
         ],

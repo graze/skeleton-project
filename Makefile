@@ -55,6 +55,9 @@ test-integration: ## Run the integration testsuite.
 test-coverage: ## Run all tests and output coverage to the console.
 	$(DOCKER_RUN) composer test:coverage --ansi
 
+test-coverage-html: ## Run all tests and output html results
+	$(DOCKER_RUN) composer test:coverage-html --ansi
+
 test-coverage-clover: ## Run all tests and output clover coverage to file.
 	$(DOCKER_RUN) composer test:coverage-clover --ansi
 
