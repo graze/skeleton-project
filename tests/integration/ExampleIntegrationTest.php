@@ -8,15 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @license https://github.com/graze/package-name/blob/master/LICENSE.md
- * @link https://github.com/graze/package-name
+ * @license https://github.com/graze/:package-name/blob/master/LICENSE.md
+ * @link https://github.com/graze/:package-name
  */
 
-namespace Graze\Skeleton\Test\Functional;
+namespace Graze\Skeleton\Test\Integration;
 
 use Graze\Skeleton\Test\ExampleTestCase;
 
-class ExampleFunctionalTest extends ExampleTestCase
+class ExampleIntegrationTest extends ExampleTestCase
 {
     public function testFileExists()
     {

@@ -1,44 +1,67 @@
-.PHONY: test test-coverage test-coverage-html test-coverage-clover test-unit test-unit-coverage test-unit-coverage-html test-unit-coverage-clover test-functional test-functional-coverage test-functional-coverage-html test-functional-coverage-clover install
+SHELL = /bin/sh
 
-# tests
-test:
-	@./vendor/bin/phpunit
+DOCKER ?= $(shell which docker)
+DOCKER_REPOSITORY := graze/:package-name
+VOLUME := /opt/graze/:package-name
+VOLUME_MAP := -v $$(pwd):${VOLUME}
+DOCKER_RUN := ${DOCKER} run --rm -t ${VOLUME_MAP} ${DOCKER_REPOSITORY}:latest
 
-test-coverage:
-	@./vendor/bin/phpunit --coverage-text
+.PHONY: install composer clean help
+.PHONY: test lint lint-fix test-unit test-integration test-matrix test-coverage test-coverage-clover
 
-test-coverage-html:
-	@./vendor/bin/phpunit --coverage-html ./tests/report/html
+.SILENT: help
 
-test-coverage-clover:
-	@./vendor/bin/phpunit --coverage-clover=./tests/report/coverage.clover
 
-# unit tests
-test-unit:
-	@./vendor/bin/phpunit --testsuite unit
 
-test-unit-coverage:
-	@./vendor/bin/phpunit --testsuite unit --coverage-text
+install: ## Download the dependencies then build the image :rocket:.
+	make 'composer-install --optimize-autoloader --ignore-platform-reqs'
+	$(DOCKER) build --tag ${DOCKER_REPOSITORY}:latest .
 
-test-unit-coverage-html:
-	@./vendor/bin/phpunit --testsuite unit --coverage-html ./tests/report/unit/html
+composer-%: ## Run a composer command, `make "composer-<command> [...]"`.
+	${DOCKER} run -t --rm \
+        -v $$(pwd):/usr/src/app \
+        -v ~/.composer:/root/composer \
+        -v ~/.ssh:/root/.ssh:ro \
+        graze/composer --ansi --no-interaction $* $(filter-out $@,$(MAKECMDGOALS))
 
-test-unit-coverage-clover:
-	@./vendor/bin/phpunit --testsuite unit --coverage-clover=./tests/report/unit/coverage.clover
+clean: ## Clean up any images.
+	$(DOCKER) rmi ${DOCKER_REPOSITORY}:latest
 
-# functional tests
-test-functional:
-	@./vendor/bin/phpunit --testsuite functional
 
-test-functional-coverage:
-	@./vendor/bin/phpunit --testsuite functional --coverage-text
 
-test-functional-coverage-html:
-	@./vendor/bin/phpunit --testsuite functional --coverage-html ./tests/report/functional/html
+test: ## Run the unit and integration testsuites.
+test: lint test-unit test-integration
 
-test-functional-coverage-clover:
-	@./vendor/bin/phpunit --testsuite functional --coverage-clover=./tests/report/functional/coverage.clover
+lint: ## Run phpcs against the code.
+	$(DOCKER_RUN) composer lint --ansi
 
-# build
-install:
-	@composer install
+lint-fix: ## Run phpcsf and fix lint errors.
+	$(DOCKER_RUN) composer lint:auto-fix --ansi
+
+test-unit: ## Run the unit testsuite.
+	$(DOCKER_RUN) composer test:unit --ansi
+
+test-matrix: ## Run the unit tests against multiple targets.
+	${DOCKER} run --rm -t ${VOLUME_MAP} -w ${VOLUME} php:5.6-cli \
+    vendor/bin/phpunit --testsuite unit
+	${DOCKER} run --rm -t ${VOLUME_MAP} -w ${VOLUME} php:7.0-cli \
+    vendor/bin/phpunit --testsuite unit
+	${DOCKER} run --rm -t ${VOLUME_MAP} -w ${VOLUME} diegomarangoni/hhvm:cli \
+    vendor/bin/phpunit --testsuite unit
+
+test-integration: ## Run the integration testsuite.
+	$(DOCKER_RUN) composer test:integration --ansi
+
+test-coverage: ## Run all tests and output coverage to the console.
+	$(DOCKER_RUN) composer test:coverage --ansi
+
+test-coverage-clover: ## Run all tests and output clover coverage to file.
+	$(DOCKER_RUN) composer test:coverage-clover --ansi
+
+
+
+help: ## Show this help message.
+	echo "usage: make [target] ..."
+	echo ""
+	echo "targets:"
+	fgrep --no-filename "##" $(MAKEFILE_LIST) | fgrep --invert-match $$'\t' | sed -e 's/: ## / - /'
