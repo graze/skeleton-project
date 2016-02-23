@@ -7,11 +7,11 @@ VOLUME_MAP := -v $$(pwd):${VOLUME}
 DOCKER_RUN := ${DOCKER} run --rm -t ${VOLUME_MAP} ${DOCKER_REPOSITORY}:latest
 
 .PHONY: install composer clean help
-.PHONY: test lint lint-fix test-unit test-integration test-matrix test-coverage test-coverage-clover
+.PHONY: test lint lint-fix test-unit test-integration test-matrix test-coverage test-coverage-html test-coverage-clover
 
 .SILENT: help
 
-
+# Building
 
 install: ## Download the dependencies then build the image :rocket:.
 	make 'composer-install --optimize-autoloader --ignore-platform-reqs'
@@ -28,6 +28,7 @@ clean: ## Clean up any images.
 	$(DOCKER) rmi ${DOCKER_REPOSITORY}:latest
 
 
+# Testing
 
 test: ## Run the unit and integration testsuites.
 test: lint test-unit test-integration
@@ -62,6 +63,7 @@ test-coverage-clover: ## Run all tests and output clover coverage to file.
 	$(DOCKER_RUN) composer test:coverage-clover --ansi
 
 
+# Help
 
 help: ## Show this help message.
 	echo "usage: make [target] ..."
