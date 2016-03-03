@@ -2,14 +2,14 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/graze/:package-name.svg?style=flat-square)](https://packagist.org/packages/graze/:package-name)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/graze/:package_name/master.svg?style=flat-square)](https://travis-ci.org/graze/:package-name)
+[![Build Status](https://img.shields.io/travis/graze/:package-name/master.svg?style=flat-square)](https://travis-ci.org/graze/:package-name)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/graze/:package-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/graze/:package-name/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/graze/:package-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/graze/:package-name)
 [![Total Downloads](https://img.shields.io/packagist/dt/graze/:package-name.svg?style=flat-square)](https://packagist.org/packages/graze/:package-name)
 
 >This is heavily inspired by the skeleton project from [The PHP League](https://github.com/thephpleague/skeleton). With some changes based on our preferences. Thanks to them!
 
->**Note:** Replace `:author-name` `:author-username` `:author-email` `:package-name` `:package-description`, `:scrutinizer-access-token`, `:year` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json) and [travis.yml](.travis.yml) files, then delete this blockquote.
+>**Note:** Replace `:author-name` `:author-username` `:author-email` `:package-name` `:package-description`, `:scrutinizer-access-token`, `:year` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json), [Dockerfile](Dockerfile) and [travis.yml](.travis.yml) files, then delete this blockquote.
 
 >**To use this skeleton project:**
 ```shell
@@ -29,7 +29,7 @@ to make it clear what the project is trying to achieve and the problems that it 
 Via Composer
 
 ``` bash
-$ composer require graze/:package_name
+$ composer require graze/:package-name
 ```
 
 ## Usage
