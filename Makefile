@@ -34,13 +34,13 @@ test: ## Run the unit and integration testsuites.
 test: lint test-unit test-integration
 
 lint: ## Run phpcs against the code.
-	$(DOCKER_RUN) composer lint --ansi
+	$(DOCKER_RUN) vendor/bin/phpcs -p --standard=PSR2 --warning-severity=0 src/ tests/
 
 lint-fix: ## Run phpcsf and fix lint errors.
-	$(DOCKER_RUN) composer lint:auto-fix --ansi
+	$(DOCKER_RUN) vendor/bin/phpcbf -p --standard=PSR2 src/ tests/
 
 test-unit: ## Run the unit testsuite.
-	$(DOCKER_RUN) composer test:unit --ansi
+	$(DOCKER_RUN) vendor/bin/phpunit --colors=always --testsuite unit
 
 test-matrix: ## Run the unit tests against multiple targets.
 	${DOCKER} run --rm -t ${VOLUME_MAP} -w ${VOLUME} php:5.6-cli \
@@ -51,16 +51,16 @@ test-matrix: ## Run the unit tests against multiple targets.
     vendor/bin/phpunit --testsuite unit
 
 test-integration: ## Run the integration testsuite.
-	$(DOCKER_RUN) composer test:integration --ansi
+	$(DOCKER_RUN) vendor/bin/phpunit --colors=always --testsuite integration
 
 test-coverage: ## Run all tests and output coverage to the console.
-	$(DOCKER_RUN) composer test:coverage --ansi
+	$(DOCKER_RUN) vendor/bin/phpunit --coverage-text
 
 test-coverage-html: ## Run all tests and output html results
-	$(DOCKER_RUN) composer test:coverage-html --ansi
+	$(DOCKER_RUN) vendor/bin/phpunit --coverage-html ./tests/report/html
 
 test-coverage-clover: ## Run all tests and output clover coverage to file.
-	$(DOCKER_RUN) composer test:coverage-clover --ansi
+	$(DOCKER_RUN) vendor/bin/phpunit --coverage-clover=./tests/report/coverage.clover
 
 
 # Help
