@@ -34,10 +34,10 @@ test: ## Run the unit and integration testsuites.
 test: lint test-unit test-integration
 
 lint: ## Run phpcs against the code.
-	$(DOCKER_RUN) vendor/bin/phpcs -p --standard=PSR2 --warning-severity=0 src/ tests/
+	$(DOCKER_RUN) vendor/bin/phpcs -p --standard=vendor/graze/standards/PHP/CodeSniffer/Graze/ruleset.xml --warning-severity=0 src/ tests/
 
 lint-fix: ## Run phpcsf and fix lint errors.
-	$(DOCKER_RUN) vendor/bin/phpcbf -p --standard=PSR2 src/ tests/
+	$(DOCKER_RUN) vendor/bin/phpcbf -p --standard=vendor/graze/standards/PHP/CodeSniffer/Graze/ruleset.xml src/ tests/
 
 test-unit: ## Run the unit testsuite.
 	$(DOCKER_RUN) vendor/bin/phpunit --colors=always --testsuite unit
