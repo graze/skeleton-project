@@ -21,6 +21,14 @@ $ git init
 
 >You now have a copy of the files in this repository, in a new git repository with no previous history that can you manipulate and push to other remote repositories.
 
+>**Continuous Integration**
+
+>Your project should make use of the following remote CI services:
+- [Travis CI](https://travis-ci.org/graze/) - automated testing
+- [Scrutinizer CI](https://scrutinizer-ci.com/organizations/graze/repositories) - code quality
+
+>Follow the instructions on the respective sites to add your project. Builds should be triggered on each Pull Request and each merge in to the master branch.
+
 This is where your description should go, try and limit it to a paragraph or two. It should outline the 'mission' or goals of the project
 to make it clear what the project is trying to achieve and the problems that it solves.
 
