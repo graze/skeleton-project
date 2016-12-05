@@ -4,7 +4,8 @@ RUN apt-get update && apt-get install -y php5-xdebug --no-install-recommends && 
 
 RUN docker-php-ext-install mbstring \
     && curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && echo "zend_extension=$(find / -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini
+    && echo "zend_extension=$(find / -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "error_reporting = E_ALL" > /usr/local/etc/php/php.ini
 
 ADD . /opt/graze/:package-name
 
