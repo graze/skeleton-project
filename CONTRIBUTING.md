@@ -22,10 +22,10 @@ made them including any relevant information or justifications that will aid the
 ## Development Environment
 
 A Dockerfile is included in this repository for development. All make commands use the docker container to run the code.
-An initial setup will need to be run to install the environment:
+An initial step will need to be run to set up the environment:
 
 ```shell
-$ make install
+$ make setup
 ```
 
 A complete list of commands can be found by running: `$ make help`

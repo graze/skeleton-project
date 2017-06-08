@@ -6,14 +6,14 @@ VOLUME := /opt/graze/:package-name
 VOLUME_MAP := -v $$(pwd):${VOLUME}
 DOCKER_RUN := ${DOCKER} run --rm -t ${VOLUME_MAP} ${DOCKER_REPOSITORY}:latest
 
-.PHONY: install composer clean help
+.PHONY: setup composer clean help
 .PHONY: test lint lint-fix test-unit test-integration test-matrix test-coverage test-coverage-html test-coverage-clover
 
 .SILENT: help
 
 # Building
 
-install: ## Download the dependencies then build the image :rocket:.
+setup: ## Download the dependencies then build the image :rocket:.
 	make 'composer-install --optimize-autoloader --ignore-platform-reqs'
 	$(DOCKER) build --tag ${DOCKER_REPOSITORY}:latest .
 
