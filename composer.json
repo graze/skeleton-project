@@ -1,11 +1,11 @@
 {
-    "name": "graze/__package-name__",
+    "name": "graze/skeleton-project",
     "description": "__package-description__",
     "keywords": [
         "graze",
-        "__package-name__"
+        "skeleton-project"
     ],
-    "homepage": "https://github.com/graze/__package-name__",
+    "homepage": "https://github.com/graze/skeleton-project",
     "license": "MIT",
     "authors": [
         {
