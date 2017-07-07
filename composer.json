@@ -1,16 +1,16 @@
 {
-    "name": "graze/:package-name",
-    "description": ":package-description",
+    "name": "graze/__package-name__",
+    "description": "__package-description__",
     "keywords": [
         "graze",
-        ":package-name"
+        "__package-name__"
     ],
-    "homepage": "https://github.com/graze/:package-name",
+    "homepage": "https://github.com/graze/__package-name__",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author-name",
-            "email": ":author-email",
+            "name": "__author-name__",
+            "email": "__author@email.com",
             "role": "Developer"
         },
         {
@@ -21,11 +21,11 @@
         }
     ],
     "require": {
-        "php": "^5.6"
+        "php": "^5.5 | ^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : "5.*",
-        "squizlabs/php_codesniffer": "^2.5",
+        "phpunit/phpunit": "^4.2 | ^5.2",
+        "squizlabs/php_codesniffer": "^2.9",
         "graze/standards": "^1.0"
     },
     "autoload": {

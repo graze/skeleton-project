@@ -1,6 +1,6 @@
 # Change Log
 
-All Notable changes to `:package-name` will be documented in this file
+All Notable changes to `__package-name__` will be documented in this file
 
 ## [Version] - YYYY-MM-DD
 
