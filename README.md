@@ -36,7 +36,7 @@
 >
 > 1. Log-in via github
 > 1. Click `+ Add Repository`
-> 1. Select `graze` as the organisation
+> 1. Select `graze` as the organisation (ask a graze/@open-source-team member for access)
 > 1. Entry the repository name
 > 1. Click `Add Repository`
 > 1. Click on the 🔧  > `Configuration` set `Shared Config` to `graze/standards + open source`
