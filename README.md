@@ -38,8 +38,8 @@
 > 1. Click `+ Add Repository`
 > 1. Select `graze` as the organisation
 > 1. Entry the repository name
-> 1. Do not run tests in scrutinzer
 > 1. Click `Add Repository`
+> 1. Click on the 🔧  > `Configuration` set `Shared Config` to `graze/standards + open source`
 >
 > ### [Packagist](https://packagist.org/graze) - package repository
 >
