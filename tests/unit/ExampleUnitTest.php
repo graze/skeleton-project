@@ -1,15 +1,15 @@
 <?php
 
 /**
- * This file is part of graze/:package-name.
+ * This file is part of graze/skeleton-project.
  *
- * Copyright (c) :year Nature Delivered Ltd. <https://www.graze.com>
+ * Copyright (c) __year__ Nature Delivered Ltd. <https://www.graze.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @license https://github.com/graze/:package-name/blob/master/LICENSE.md
- * @link https://github.com/graze/:package-name
+ * @license https://github.com/graze/skeleton-project/blob/master/LICENSE.md
+ * @link https://github.com/graze/skeleton-project
  */
 
 namespace Graze\Skeleton\Test\Unit;
