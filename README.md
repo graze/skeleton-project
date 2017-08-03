@@ -8,26 +8,50 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/graze/skeleton-project.svg?style=flat-square)](https://packagist.org/packages/graze/skeleton-project)
 
 >This is heavily inspired by the skeleton project from [The PHP League](https://github.com/thephpleague/skeleton). With some changes based on our preferences. Thanks to them!
-
+>
 >**Note:** Replace `__author-name__` `__author-username__` `__author@email.com` `skeleton-project` `__package-description__`, `__year__` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json), [Dockerfile](Dockerfile) and [travis.yml](.travis.yml) files, then delete this blockquote.
-
+>
 >**To use this skeleton project:**
-```shell
-$ git clone --depth=1 git@github.com:graze/skeleton-project.git your-project
-$ cd ./your-project
-$ rm -rf .git
-$ git init
-```
-
+> ```shell
+> git clone --depth=1 git@github.com:graze/skeleton-project.git your-project
+> cd ./your-project
+> rm -rf .git
+> git init
+> ```
+>
 >You now have a copy of the files in this repository, in a new git repository with no previous history that can you manipulate and push to other remote repositories.
-
->**Continuous Integration**
-
+>
+> ## Continuous Integration
+>
 >Your project should make use of the following remote CI services:
-- [Travis CI](https://travis-ci.org/graze/) - automated testing
-- [Scrutinizer CI](https://scrutinizer-ci.com/organizations/graze/repositories) - code quality
-
->Follow the instructions on the respective sites to add your project. Builds should be triggered on each Pull Request and each merge in to the master branch.
+>
+> ### [Travis CI](https://travis-ci.org/graze/) - automated testing
+>
+> 1. Log-in with github
+> 1. visit: https://travis-ci.org/profile/graze
+> 1. Click `sync with github`
+> 1. Enable your project
+>
+> ### [Scrutinizer CI](https://scrutinizer-ci.com/organizations/graze/repositories) - code quality
+>
+> 1. Log-in via github
+> 1. Click `+ Add Repository`
+> 1. Select `graze` as the organisation (ask a graze/@open-source-team member for access)
+> 1. Entry the repository name
+> 1. Click `Add Repository`
+> 1. Click on the 🔧  > `Configuration` set `Shared Config` to `graze/standards + open source`
+>
+> ### [Packagist](https://packagist.org/graze) - package repository
+>
+> 1. Log-in using the graze account
+> 1. Click `Submit`
+> 1. Paste the `git` url (e.g. `git@github.com:graze/skeleton-project.git`)
+> 1. Click `Check`
+> 1. Follow the instructions on auto updating the project in packagist
+>
+> ## Github Teams
+>
+> Add this project to the graze [Open Source](https://github.com/orgs/graze/teams/open-source-team/members) team to allows others to contribute to this project
 
 This is where your description should go, try and limit it to a paragraph or two. It should outline the 'mission' or goals of the project
 to make it clear what the project is trying to achieve and the problems that it solves.
@@ -36,13 +60,13 @@ to make it clear what the project is trying to achieve and the problems that it 
 
 Via Composer
 
-``` bash
-$ composer require graze/skeleton-project
+```bash
+composer require graze/skeleton-project
 ```
 
 ## Usage
 
-``` php
+```php
 $skeleton = new Graze\Skeleton\Skeleton('big', 'small', 'dog');
 echo $skeleton->sing();
 ```
@@ -53,8 +77,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-```bash
-$ make test
+```shell
+make build test
 ```
 
 ## Contributing
