@@ -24,7 +24,7 @@ build-update: ## Update all dependencies
 composer-%: ## Run a composer command, `make "composer-<command> [...]"`.
 	${DOCKER} run -t --rm \
         -v $$(pwd):/usr/src/app \
-        -v ~/.composer:/root/composer \
+        -v ~/.composer:/root/.composer \
         -v ~/.ssh:/root/.ssh:ro \
         graze/composer --ansi --no-interaction $* $(filter-out $@,$(MAKECMDGOALS))
 
