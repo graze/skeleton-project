@@ -43,9 +43,12 @@ class Skeleton
         $this->dogSkeleton = $dogSkeleton;
     }
 
+    /**
+     * @return string
+     */
     public function sing()
     {
-        echo 'In a dark, dark town there was a dark, dark street
+        return 'In a dark, dark town there was a dark, dark street
             and in the dark, dark street there was a dark, dark house,
             and in the dark, dark house there were some dark, dark stairs
             and down the dark, dark stairs there was a dark, dark cellar
