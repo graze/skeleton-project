@@ -16,7 +16,7 @@ PREFER_LOWEST ?=
 # Building
 
 build: ## Download the dependencies then build the image :rocket:.
-	make 'composer-install --prefer-dist --optimize-autoloader --ignore-platform-reqs'
+	make 'composer-install --prefer-dist --optimize-autoloader'
 
 build-update: ## Update all dependencies
 	make 'composer-update --prefer-dist --optimize-autoloader ${PREFER_LOWEST}'
@@ -76,4 +76,4 @@ help: ## Show this help message.
 	echo "usage: make [target] ..."
 	echo ""
 	echo "targets:"
-	fgrep --no-filename "##" $(MAKEFILE_LIST) | fgrep --invert-match $$'\t' | sed -e 's/: ## / - /'
+	egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
