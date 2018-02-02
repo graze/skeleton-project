@@ -25,7 +25,7 @@ A Dockerfile is included in this repository for development. All make commands u
 An initial step will need to be run to set up the environment:
 
 ```shell
-$ make setup
+$ make build
 ```
 
 A complete list of commands can be found by running: `$ make help`
