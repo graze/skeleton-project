@@ -1,9 +1,11 @@
 SHELL = /bin/sh
 
-DOCKER ?= $(shell which docker)
+DOCKER = $(shell which docker)
+PHP_VER := 7.2
+IMAGE := graze/php-alpine:${PHP_VER}-test
 VOLUME := /srv
 DOCKER_RUN_BASE := ${DOCKER} run --rm -t -v $$(pwd):${VOLUME} -w ${VOLUME}
-DOCKER_RUN := docker-compose run --rm test
+DOCKER_RUN := ${DOCKER_RUN_BASE} ${IMAGE}
 
 PREFER_LOWEST ?=
 
@@ -15,18 +17,23 @@ PREFER_LOWEST ?=
 
 # Building
 
-build: ## Download the dependencies then build the image :rocket:.
-	make 'composer-install --prefer-dist --optimize-autoloader'
+build: ## Install the dependencies
+build: ensure-composer-file
+	make 'composer-install --optimize-autoloader --prefer-dist ${PREFER_LOWEST}'
 
-build-update: ## Update all dependencies
-	make 'composer-update --prefer-dist --optimize-autoloader ${PREFER_LOWEST}'
+build-update: ## Update the dependencies
+build-update: ensure-composer-file
+	make 'composer-update --optimize-autoloader --prefer-dist ${PREFER_LOWEST}'
+
+ensure-composer-file: # Update the composer file
+	make 'composer-config platform.php ${PHP_VER}'
 
 composer-%: ## Run a composer command, `make "composer-<command> [...]"`.
 	${DOCKER} run -t --rm \
-        -v $$(pwd):/usr/src/app \
-        -v ~/.composer:/root/.composer \
+        -v $$(pwd):/app:delegated \
+        -v ~/.composer:/tmp:delegated \
         -v ~/.ssh:/root/.ssh:ro \
-        graze/composer --ansi --no-interaction $* $(filter-out $@,$(MAKECMDGOALS))
+        composer --ansi --no-interaction $* $(filter-out $@,$(MAKECMDGOALS))
 
 # Testing
 
@@ -49,17 +56,15 @@ test-lowest: ## Test using the lowest possible versions of the dependencies
 test-lowest: PREFER_LOWEST=--prefer-lowest
 test-lowest: build-update test
 
+test-matrix-lowest: ## Test all version, with the lowest version
+	${MAKE} test-matrix PREFER_LOWEST=--prefer-lowest
+	${MAKE} build-update
+
 test-matrix: ## Run the unit tests against multiple targets.
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:5.5-alpine" PREFER_LOWEST=--prefer-lowest build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:5.6-alpine" PREFER_LOWEST=--prefer-lowest build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:7.0-alpine" PREFER_LOWEST=--prefer-lowest build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:7.1-alpine" PREFER_LOWEST=--prefer-lowest build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} hhvm/hhvm:latest" PREFER_LOWEST=--prefer-lowest build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:5.5-alpine" build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:5.6-alpine" build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:7.0-alpine" build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} php:7.1-alpine" build-update test
-	${MAKE} DOCKER_RUN="${DOCKER_RUN_BASE} hhvm/hhvm:latest" build-update test
+	${MAKE} PHP_VER="5.6" build-update test
+	${MAKE} PHP_VER="7.0" build-update test
+	${MAKE} PHP_VER="7.1" build-update test
+	${MAKE} PHP_VER="7.2" build-update test
 
 test-coverage: ## Run all tests and output coverage to the console.
 	${DOCKER_RUN} phpdbg7 -qrr vendor/bin/phpunit --coverage-text
