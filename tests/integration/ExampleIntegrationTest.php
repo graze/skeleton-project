@@ -14,9 +14,9 @@
 
 namespace Graze\Skeleton\Test\Integration;
 
-use Graze\Skeleton\Test\ExampleTestCase;
+use Graze\Skeleton\Test\TestCase;
 
-class ExampleIntegrationTest extends ExampleTestCase
+class ExampleIntegrationTest extends TestCase
 {
     public function testFileExists()
     {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  *
  * @license https://github.com/graze/skeleton-project/blob/master/LICENSE.md
- * @link https://github.com/graze/skeleton-project
+ * @link    https://github.com/graze/skeleton-project
  */
 
 namespace Graze\Skeleton;

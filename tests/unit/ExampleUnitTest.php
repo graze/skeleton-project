@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  *
  * @license https://github.com/graze/skeleton-project/blob/master/LICENSE.md
- * @link https://github.com/graze/skeleton-project
+ * @link    https://github.com/graze/skeleton-project
  */
 
 namespace Graze\Skeleton\Test\Unit;
 
-use Graze\Skeleton\Test\ExampleTestCase;
 use Graze\Skeleton\Skeleton;
+use Graze\Skeleton\Test\TestCase;
 
-class ExampleUnitTest extends ExampleTestCase
+class ExampleUnitTest extends TestCase
 {
     public function testTrueIsTrue()
     {
@@ -28,10 +28,13 @@ class ExampleUnitTest extends ExampleTestCase
     {
         $skeleton = new Skeleton('big', 'small', 'dog');
 
-        static::assertEquals('In a dark, dark town there was a dark, dark street
+        static::assertEquals(
+            'In a dark, dark town there was a dark, dark street
             and in the dark, dark street there was a dark, dark house,
             and in the dark, dark house there were some dark, dark stairs
             and down the dark, dark stairs there was a dark, dark cellar
-            and in the dark dark cellar, three skeletons lived!', $skeleton->sing());
+            and in the dark dark cellar, three skeletons lived!',
+            $skeleton->sing()
+        );
     }
 }
