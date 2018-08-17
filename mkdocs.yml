@@ -4,7 +4,7 @@ site_author: __author-name__
 repo_url: https://github.com/graze/skeleton-project
 theme:
   name: 'material'
-  custom_dir: theme
+  custom_dir: docs/theme
   favicon: assets/images/favicon-192x192.png
   language: en
   include_sidebar: true
