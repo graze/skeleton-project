@@ -81,6 +81,14 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 make build test
 ```
 
+You can test mkdocs by calling:
+
+```shell
+make docs-test
+```
+
+This will start a development server in docker on port `8080`.
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.

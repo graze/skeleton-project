@@ -1,0 +1,32 @@
+site_name: Project Name
+site_description: __package-description__
+site_author: __author-name__
+repo_url: https://github.com/graze/skeleton-project
+theme:
+  name: 'material'
+  custom_dir: theme
+  favicon: assets/images/favicon-192x192.png
+  language: en
+  include_sidebar: true
+  palette:
+    primary: 'cyan'
+
+markdown_extensions:
+  - markdown.extensions.tables:
+  - pymdownx.magiclink:
+  - pymdownx.tilde:
+  - pymdownx.betterem:
+  - pymdownx.superfences:
+  - pymdownx.highlight:
+      css_class: codehilite
+      extend_pygments_lang:
+        - name: php
+          lang: php
+          options:
+            startinline: True
+  - pymdownx.inlinehilite:
+  - pymdownx.emoji:
+  - pymdownx.escapeall:
+      hardbreak: True
+      nbsp: True
+  - pymdownx.tasklist:
