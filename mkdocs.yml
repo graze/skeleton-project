@@ -30,3 +30,5 @@ markdown_extensions:
       hardbreak: True
       nbsp: True
   - pymdownx.tasklist:
+  - toc:
+      permalink: true
