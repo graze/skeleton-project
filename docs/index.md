@@ -1,4 +1,4 @@
-# skeleton-project
+# __package-name__
 
 This is where your project documentation should go. It SHOULD NOT just be a
 repetition of the README, but COULD expand on some of the topics mentioned

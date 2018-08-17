@@ -1,4 +1,4 @@
-site_name: Project Name
+site_name: __package-name__
 site_description: __package-description__
 site_author: __author-name__
 repo_url: https://github.com/graze/skeleton-project
