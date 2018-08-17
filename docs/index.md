@@ -11,14 +11,14 @@ separate pages, linked together via the mkdocs configuration.
 Some things to consider:
 
 - Introduction
-  - What it is
-  - Why it exists
-  - How to obtain it
-  - Requirements
-  - Installation steps
+    - What it is
+    - Why it exists
+    - How to obtain it
+    - Requirements
+    - Installation steps
 - Quickstart.
-  - ie. what's the quickest way for someone to get up and running,
-    covering the most common use cases.
+    - ie. what's the quickest way for someone to get up and running,
+      covering the most common use cases.
 - Architecture
 - Configuration
 - Different use cases
