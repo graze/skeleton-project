@@ -56,6 +56,6 @@ jobs:
       skip-cleanup: true
       keep-history: true
       verbose: true
-      github-token: ${GITHUB_TOKEN}
+      github-token: $GITHUB_TOKEN
       on:
         branch: mkdocs-ci
