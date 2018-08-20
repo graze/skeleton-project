@@ -43,10 +43,14 @@ jobs:
   include:
   - stage: lint
     name: "Markdown"
+    before_script: skip
     script: make lint-md
+    after_script: skip
   - stage: deploy
     name: "Deploy to GitHub Pages"
+    before_script: skip
     script: make docs-build
+    after_script: skip
     deploy:
       provider: pages
       local-dir: site
