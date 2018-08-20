@@ -35,15 +35,17 @@ after_script:
   - test -f ./tests/report/coverage.clover && (wget https://scrutinizer-ci.com/ocular.phar; php ocular.phar code-coverage:upload --format=php-clover ./tests/report/coverage.clover)
 
 stages:
-  - lint
   - test
+  - lint
   - name: deploy
-    if: branch = master
+    if: branch = mkdocs-ci
 jobs:
   include:
   - stage: lint
+    name: "Markdown"
     script: make lint-md
   - stage: deploy
+    name: "Deploy to GitHub Pages"
     script: make docs-build
     deploy:
       provider: pages
