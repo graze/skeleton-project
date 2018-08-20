@@ -10,6 +10,18 @@ theme:
   include_sidebar: true
   palette:
     primary: 'cyan'
+    accent: 'cyan'
+
+nav:
+  - Home: 'index.md'
+  - Continuous Integration: 'ci.md'
+  - 'External Services':
+    - Travis: 'external_services/travis.md'
+    - Scrutinizer: 'external_services/scrutinzer.md'
+    - Packagist: 'external_services/packagist.md'
+    - DockerHub: 'external_services/docker_hub.md'
+    - GitHub: 'external_services/github.md'
+    - 'GitHub Pages': 'external_services/github_pages.md'
 
 markdown_extensions:
   - markdown.extensions.tables:

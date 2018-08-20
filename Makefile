@@ -40,8 +40,14 @@ composer-%: ## Run a composer command, `make "composer-<command> [...]"`.
 test: ## Run the unit and integration testsuites.
 test: lint test-unit test-integration
 
-lint: ## Run phpcs against the code.
+lint: ## Check the syntax of PHP and Markdown files
+lint: lint-php lint-md
+
+lint-php: ## Run phpcs against the code.
 	${DOCKER_RUN} vendor/bin/phpcs -p --warning-severity=0 src/ tests/
+
+lint-md: ## Run markdownlist against the documentation
+	${DOCKER} run --rm -v $$(pwd):/data:cached gouvinb/docker-markdownlint -v *.md docs/*.md docs/*/*.md
 
 lint-fix: ## Run phpcsf and fix possible lint errors.
 	${DOCKER_RUN} vendor/bin/phpcbf -p src/ tests/

@@ -32,3 +32,21 @@ script:
 
 after_script:
   - test -f ./tests/report/coverage.clover && (wget https://scrutinizer-ci.com/ocular.phar; php ocular.phar code-coverage:upload --format=php-clover ./tests/report/coverage.clover)
+
+stages:
+  - test
+  - name: deploy
+    if: branch = mkdocs-ci
+jobs:
+  include:
+  - stage: deploy
+    script: make docs-build
+    deploy:
+      provider: pages
+      local-dir: site
+      skip-cleanup: true
+      keep-history: true
+      verbose: true
+      github-token: ${GITHUB_TOKEN}
+      on:
+        branch: mkdocs-ci
