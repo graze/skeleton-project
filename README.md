@@ -7,28 +7,8 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/graze/skeleton-project.svg?style=flat-square)](https://scrutinizer-ci.com/g/graze/skeleton-project)
 [![Total Downloads](https://img.shields.io/packagist/dt/graze/skeleton-project.svg?style=flat-square)](https://packagist.org/packages/graze/skeleton-project)
 
-> This is heavily inspired by the skeleton project from [The PHP League](https://github.com/thephpleague/skeleton).
-> With some changes based on our preferences. Thanks to them!
->
-> **Note:** Replace `__author-name__` `__author-username__` `__author@email.com` `skeleton-project`, `__package-name__`,
-> `__package-description__`, `__year__` with their correct values in [README.md](README.md),
-> [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE](LICENSE), [composer.json](composer.json),
-> [Dockerfile](Dockerfile) and [travis.yml](.travis.yml) files, then delete this blockquote and the `docs` directory.
->
-> **To use this skeleton project:**
-> ```shell
-> git clone --depth=1 git@github.com:graze/skeleton-project.git your-project
-> cd ./your-project
-> rm -rf .git
-> git init
-> ```
->
-> You now have a copy of the files in this repository, in a new git repository with no previous history that can you
-> manipulate and push to other remote repositories.
->
-> ## Continuous Integration
->
-> See: <https://graze.github.io/skeleton-project/ci/> for services to integration with
+> Follow the steps in the [documentation](http://graze.github.io/skeleton-project/#quick-start) to set up the project and
+> delete this block quote.
 
 This is where your description should go, try and limit it to a paragraph or two.
 It should outline the 'mission' or goals of the project to make it clear what the project is trying to achieve and the
@@ -59,7 +39,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 make build test
 ```
 
-You can test mkdocs by calling:
+You can test MkDocs by calling:
 
 ```shell
 make docs-test

@@ -14,7 +14,6 @@ theme:
 
 nav:
   - Home: 'index.md'
-  - Continuous Integration: 'ci.md'
   - 'External Services':
     - Travis: 'external_services/travis.md'
     - Scrutinizer: 'external_services/scrutinizer.md'

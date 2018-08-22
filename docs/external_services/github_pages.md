@@ -4,7 +4,8 @@ To deploy a documentation site (like this one), we currently use [Github Pages][
 
 [Travis](travis.md) can deploy the documentation to github pages.
 
-1. Add the following to the `.travis.yml` file to deploy to github pages. _This is included in the sample file_
+1. Add a deploy stage to the `.travis.yml` file to deploy to github pages.
+  _A slightly more complex version is included in the example file_
 
     ```yml
     stages:

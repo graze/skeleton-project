@@ -10,5 +10,5 @@
 1. Follow the instructions on auto updating the project from github in packagist
 
 [packagist]: https://packagist.org
-[packagist-graze]: https://packagist.org/graze
+[packagist-graze]: https://packagist.org/packages/graze
 [composer]: https://getcomposer.org/

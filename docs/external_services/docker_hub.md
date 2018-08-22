@@ -1,13 +1,13 @@
 # Docker Hub
 
-Some projects include a `Dockerfile` that should be deployed to [DockerHub][docker-hub].
+Some projects include a `Dockerfile` that should be deployed to [Docker Hub][docker-hub].
 
-1. Create an Automated Build repo:
-    1. Visit: [Add Automated Build][dockerhub-add-automated-build]
+1. Create an Automated Build repository:
+    1. Visit: [Add Automated Build][docker-hub-add-automated-build]
     1. Select the repository from github
     1. Change the namespace to `graze`
     1. Click `Create`
-    1. Build Setings:
+    1. Build Settings:
         1. Goto `Build Settings`
         1. Ensure that it is built on `tag` and `branch` and `branch = master` gets built as `latest`
             ![build settings][build-settings-image]
@@ -16,7 +16,7 @@ Some projects include a `Dockerfile` that should be deployed to [DockerHub][dock
         1. Put the following in:
 
             ```bash
-            #!/bin/bash
+            #!/bin/sh
 
             docker build --build-arg BUILD_DATE="$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
                 --build-arg VCS_REF="$(git rev-parse --short HEAD)" \
@@ -24,7 +24,7 @@ Some projects include a `Dockerfile` that should be deployed to [DockerHub][dock
             ```
 
 1. Create a standard repository
-    1. Visit [Add Repository][dockerhub-add-repository]
+    1. Visit [Add Repository][docker-hub-add-repository]
     1. Push images to it using the `docker` command line:
 
         ```shell
@@ -32,13 +32,13 @@ Some projects include a `Dockerfile` that should be deployed to [DockerHub][dock
         docker push graze/skeleton
         ```
 
-1. Setup Permissions
+1. Set up Permissions
     1. Goto `Collaborators`
     1. Add all the teams required for this project:
-        1. [graze] `admin`,`owners` => `Admin` permission
-        1. [graze] `developers`,`build`,`deploy` => `Write` permission
+        1. `admin`,`owners` => `Admin` permission
+        1. `developers`,`build`,`deploy` => `Write` permission
 
 [docker-hub]: https://hub.docker.com
-[dockerhub-add-automated-build]: https://hub.docker.com/add/automated-build/graze/github/orgs/
-[dockerhub-add-repository]: https://hub.docker.com/add/repository/?namespace=graze
+[docker-hub-add-automated-build]: https://hub.docker.com/add/automated-build/graze/github/orgs/
+[docker-hub-add-repository]: https://hub.docker.com/add/repository/?namespace=graze
 [build-settings-image]: docker_hub_build_settings.png
