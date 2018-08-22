@@ -16,6 +16,7 @@ To deploy a documentation site (like this one), we currently use [Github Pages][
     include:
       - stage: deploy
         # The command to run, change this if using something different
+        before_script: sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
         script: make docs-build
         deploy:
             provider: pages
