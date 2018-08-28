@@ -255,30 +255,18 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../ci/" title="Continuous Integration" class="md-nav__link">
-      Continuous Integration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-2">
       External Services
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-2">
         External Services
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -401,17 +389,17 @@
                 
                 
                 <h1 id="docker-hub">Docker Hub<a class="headerlink" href="#docker-hub" title="Permanent link">&para;</a></h1>
-<p>Some projects include a <code>Dockerfile</code> that should be deployed to <a href="https://hub.docker.com">DockerHub</a>.</p>
+<p>Some projects include a <code>Dockerfile</code> that should be deployed to <a href="https://hub.docker.com">Docker Hub</a>.</p>
 <ol>
 <li>
-<p>Create an Automated Build repo:</p>
+<p>Create an Automated Build repository:</p>
 <ol>
 <li>Visit: <a href="https://hub.docker.com/add/automated-build/graze/github/orgs/">Add Automated Build</a></li>
 <li>Select the repository from github</li>
 <li>Change the namespace to <code>graze</code></li>
 <li>Click <code>Create</code></li>
-<li>Build Setings:<ol>
-<li>Goto <code>Build Settings</code></li>
+<li>Build Settings:<ol>
+<li>Go to <code>Build Settings</code></li>
 <li>Ensure that it is built on <code>tag</code> and <code>branch</code> and <code>branch = master</code> gets built as <code>latest</code>
     <img alt="build settings" src="../docker_hub_build_settings.png" /></li>
 </ol>
@@ -420,7 +408,7 @@
 <li>Create the file <code>hooks/build</code></li>
 <li>
 <p>Put the following in:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
 
 docker build --build-arg <span class="nv">BUILD_DATE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>date -u +<span class="s2">&quot;%Y-%m-%dT%H:%M:%SZ&quot;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
     --build-arg <span class="nv">VCS_REF</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>git rev-parse --short HEAD<span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
@@ -446,12 +434,12 @@ docker push graze/skeleton
 </ol>
 </li>
 <li>
-<p>Setup Permissions</p>
+<p>Set up Permissions</p>
 <ol>
-<li>Goto <code>Collaborators</code></li>
+<li>Go to <code>Collaborators</code></li>
 <li>Add all the teams required for this project:<ol>
-<li>[graze] <code>admin</code>,<code>owners</code> =&gt; <code>Admin</code> permission</li>
-<li>[graze] <code>developers</code>,<code>build</code>,<code>deploy</code> =&gt; <code>Write</code> permission</li>
+<li><code>admin</code>,<code>owners</code> =&gt; <code>Admin</code> permission</li>
+<li><code>developers</code>,<code>build</code>,<code>deploy</code> =&gt; <code>Write</code> permission</li>
 </ol>
 </li>
 </ol>

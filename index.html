@@ -287,13 +287,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-this-skeleton-project" title="Use this Skeleton Project" class="md-nav__link">
-    Use this Skeleton Project
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#continuous-integration" title="Continuous Integration" class="md-nav__link">
     Continuous Integration
   </a>
@@ -321,27 +314,15 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="ci/" title="Continuous Integration" class="md-nav__link">
-      Continuous Integration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-2">
       External Services
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-2">
         External Services
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -460,13 +441,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-this-skeleton-project" title="Use this Skeleton Project" class="md-nav__link">
-    Use this Skeleton Project
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#continuous-integration" title="Continuous Integration" class="md-nav__link">
     Continuous Integration
   </a>
@@ -503,7 +477,7 @@ repetition of the README, but COULD expand on some of the topics mentioned
 there. The primary focus SHOULD be on someone wanting to make use of the
 software/library rather than someone wanting to develop on it.</p>
 <p>The index page SHOULD be a brief introduction. All other sections SHOULD be
-separate pages, linked together via the mkdocs configuration.</p>
+separate pages, linked together via the MkDocs configuration.</p>
 <p>Some things to consider:</p>
 <ul>
 <li>Introduction<ul>
@@ -514,7 +488,7 @@ separate pages, linked together via the mkdocs configuration.</p>
 <li>Installation steps</li>
 </ul>
 </li>
-<li>Quickstart.<ul>
+<li>Quick Start.<ul>
 <li>ie. what's the quickest way for someone to get up and running,
   covering the most common use cases.</li>
 </ul>
@@ -535,17 +509,9 @@ separate pages, linked together via the mkdocs configuration.</p>
 <li><a href="https://climate.thephpleague.com/">CLImate</a></li>
 <li><a href="https://respect.github.io/Validation/">Respect Validation</a></li>
 </ul>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <p>This is heavily inspired by the skeleton project from <a href="https://github.com/thephpleague/skeleton">The PHP League</a>.
 With some changes based on our preferences. Thanks to them!</p>
-<h3 id="replacement">Replacement<a class="headerlink" href="#replacement" title="Permanent link">&para;</a></h3>
-<p>Replace <code>__author-name__</code> <code>__author-username__</code> <code>__author@email.com</code> <code>skeleton-project</code>, <code>__package-name__</code>,</p>
-<blockquote>
-<p><code>__package-description__</code>, <code>__year__</code> with their correct values in <code>README.md</code>,
-<code>../CHANGELOG.md</code>, <code>CONTRIBUTING.md</code>, <code>LICENSE</code>, <code>composer.json</code>,
-<code>Dockerfile</code> and <code>travis.yml</code> files, then delete all the <code>*.md</code> files in the <code>docs</code> directory.</p>
-</blockquote>
-<h3 id="use-this-skeleton-project">Use this Skeleton Project<a class="headerlink" href="#use-this-skeleton-project" title="Permanent link">&para;</a></h3>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>git clone --depth<span class="o">=</span><span class="m">1</span> git@github.com:graze/skeleton-project.git your-project
 <span class="nb">cd</span> ./your-project
 rm -rf .git
@@ -554,8 +520,21 @@ git init
 
 <p>You now have a copy of the files in this repository, in a new git repository with no previous history that can you
 manipulate and push to other remote repositories.</p>
+<h3 id="replacement">Replacement<a class="headerlink" href="#replacement" title="Permanent link">&para;</a></h3>
+<p>Replace <code>__author-name__</code> <code>__author-username__</code> <code>__author@email.com</code>, <code>skeleton-project</code>, <code>__package-name__</code>,
+<code>__package-description__</code>, <code>__year__</code> with their correct values in <code>README.md</code>,
+<code>CHANGELOG.md</code>, <code>CONTRIBUTING.md</code>, <code>LICENSE</code>, <code>composer.json</code>,
+<code>Dockerfile</code> and <code>travis.yml</code> files, then delete all the <code>*.md</code> files in the <code>docs</code> directory.</p>
 <h3 id="continuous-integration">Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permanent link">&para;</a></h3>
-<p>Setup <a href="ci/">Continous Integration</a> with external services.</p>
+<p>Our Open source projects rely on a set of external services to operate.</p>
+<ol>
+<li><a href="external_services/travis/">Travis</a> is our main continuous integration pipeline and performs testing and building.</li>
+<li><a href="external_services/scrutinizer/">Scrutinizer</a> profiles the code looking for coding standards violations and other recommendations.</li>
+<li><a href="external_services/packagist/">Packagist</a> stores the build library for use by other projects with <code>composer</code>.</li>
+<li><a href="external_services/docker_hub/">Docker Hub</a> is used to store <code>docker</code> images.</li>
+<li><a href="external_services/github/">Github</a> is where the code is hosted.</li>
+<li><a href="external_services/github_pages/">Github Pages</a> hosts any documentation using github pages.</li>
+</ol>
                 
                   
                 
@@ -577,13 +556,13 @@ manipulate and push to other remote repositories.</p>
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="ci/" title="Continuous Integration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="external_services/travis/" title="Travis" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Continuous Integration
+                Travis
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

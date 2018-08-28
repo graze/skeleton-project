@@ -255,30 +255,18 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../ci/" title="Continuous Integration" class="md-nav__link">
-      Continuous Integration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-2">
       External Services
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-2">
         External Services
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -405,7 +393,8 @@
 <p><a href="../travis/">Travis</a> can deploy the documentation to github pages.</p>
 <ol>
 <li>
-<p>Add the following to the <code>.travis.yml</code> file to deploy to github pages. <em>This is included in the sample file</em></p>
+<p>Add a deploy stage to the <code>.travis.yml</code> file to deploy to github pages.
+  <em>A slightly more complex version is included in the example file</em></p>
 <div class="codehilite"><pre><span></span>stages:
   - test
   - name: deploy
@@ -413,6 +402,8 @@
 jobs:
 include:
   - stage: deploy
+    # ensure docker is installed first
+    before_script: sudo apt-get -y -o Dpkg::Options::=&quot;--force-confnew&quot; install docker-ce
     # The command to run, change this if using something different
     script: make docs-build
     deploy:
@@ -422,7 +413,7 @@ include:
         skip-cleanup: true
         keep-history: true
         verbose: true
-        github-token: ${GITHUB_TOKEN}
+        github-token: $GITHUB_TOKEN
         on:
             branch: master
 </pre></div>
@@ -432,9 +423,9 @@ include:
 <p>Generate a github token with write access to your repository.</p>
 </li>
 <li>Add the token to the travis project.<ol>
-<li>Via the <a href="https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings">Travis Admin</a> page</li>
+<li>Either via the <a href="https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings">Travis Admin</a> page</li>
 <li>
-<p>Via the command line <a href="https://github.com/travis-ci/travis.rb#env">Travis CLI</a></p>
+<p>Or via the command line <a href="https://github.com/travis-ci/travis.rb#env">Travis CLI</a></p>
 <div class="codehilite"><pre><span></span>travis env GITHUB_TOKEN &lt;token&gt;
 </pre></div>
 
