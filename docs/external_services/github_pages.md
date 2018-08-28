@@ -15,8 +15,9 @@ To deploy a documentation site (like this one), we currently use [Github Pages][
     jobs:
     include:
       - stage: deploy
-        # The command to run, change this if using something different
+        # ensure docker is installed first
         before_script: sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+        # The command to run, change this if using something different
         script: make docs-build
         deploy:
             provider: pages
@@ -25,15 +26,15 @@ To deploy a documentation site (like this one), we currently use [Github Pages][
             skip-cleanup: true
             keep-history: true
             verbose: true
-            github-token: ${GITHUB_TOKEN}
+            github-token: $GITHUB_TOKEN
             on:
                 branch: master
     ```
 
 1. Generate a github token with write access to your repository.
 1. Add the token to the travis project.
-    1. Via the [Travis Admin][travis-add-env] page
-    1. Via the command line [Travis CLI][travis-cli]
+    1. Either via the [Travis Admin][travis-add-env] page
+    1. Or via the command line [Travis CLI][travis-cli]
 
         ```bash
         travis env GITHUB_TOKEN <token>
