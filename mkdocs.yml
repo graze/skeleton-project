@@ -1,4 +1,4 @@
-site_name: __package-name__
+site_name: Skeleton Project
 site_description: __package-description__
 site_author: __author-name__
 repo_url: https://github.com/graze/skeleton-project
@@ -10,8 +10,20 @@ theme:
   include_sidebar: true
   palette:
     primary: 'cyan'
+    accent: 'cyan'
+
+nav:
+  - Home: 'index.md'
+  - 'External Services':
+    - Travis: 'external_services/travis.md'
+    - Scrutinizer: 'external_services/scrutinizer.md'
+    - Packagist: 'external_services/packagist.md'
+    - DockerHub: 'external_services/docker_hub.md'
+    - GitHub: 'external_services/github.md'
+    - 'GitHub Pages': 'external_services/github_pages.md'
 
 markdown_extensions:
+  - admonition:
   - markdown.extensions.tables:
   - pymdownx.magiclink:
   - pymdownx.tilde:
