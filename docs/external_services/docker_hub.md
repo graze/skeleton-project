@@ -8,7 +8,7 @@ Some projects include a `Dockerfile` that should be deployed to [Docker Hub][doc
     1. Change the namespace to `graze`
     1. Click `Create`
     1. Build Settings:
-        1. Goto `Build Settings`
+        1. Go to `Build Settings`
         1. Ensure that it is built on `tag` and `branch` and `branch = master` gets built as `latest`
             ![build settings][build-settings-image]
     1. Create a build hook: _This will build the image with extra arguments passed into the Dockerfile_
@@ -33,7 +33,7 @@ Some projects include a `Dockerfile` that should be deployed to [Docker Hub][doc
         ```
 
 1. Set up Permissions
-    1. Goto `Collaborators`
+    1. Go to `Collaborators`
     1. Add all the teams required for this project:
         1. `admin`,`owners` => `Admin` permission
         1. `developers`,`build`,`deploy` => `Write` permission
