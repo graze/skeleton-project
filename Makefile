@@ -46,7 +46,7 @@ lint: lint-php lint-md
 lint-php: ## Run phpcs against the code.
 	${DOCKER_RUN} vendor/bin/phpcs -p --warning-severity=0 src/ tests/
 
-lint-md: ## Run markdownlist against the documentation
+lint-md: ## Run markdownlint against the documentation
 	${DOCKER} run --rm -v $$(pwd):/data:cached gouvinb/docker-markdownlint -v *.md docs/*.md docs/*/*.md
 
 lint-fix: ## Run phpcsf and fix possible lint errors.
